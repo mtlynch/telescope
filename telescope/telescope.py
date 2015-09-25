@@ -112,9 +112,7 @@ class ExternalQueryHandler(object):
         if query_object:
             try:
                 bq_query_returned_data = query_object.retrieve_job_data(job_id)
-                logger.debug(
-                    'Received data, processing according to %s metric.',
-                    self._metadata['metric'])
+                logger.debug('Received data, processing according to %s metric.', self._metadata['metric'])
 
                 validation_results = filters.filter_measurements_list(
                     self._metadata['metric'], bq_query_returned_data)
