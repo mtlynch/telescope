@@ -1,0 +1,17 @@
+{
+    "file_format_version": 1.1,
+    "sites": ["lga01", "lga02", "nuq01", "nuq02", "ord01", "mia01", "iad01",
+	      "lax01", "sea01", "dfw01", "atl01"],
+    "client_providers": ["comcast", "cox", "cablevision", "at&t", "verizon",
+	    		 "twc", "centurylink"],
+    "start_times": ["2012-01-01T00:00:00Z"],
+    "duration": "1096d",
+    "metrics": ["download_throughput", "upload_throughput", "minimum_rtt",
+	    	"average_rtt", "packet_retransmit_rate"],
+    "ip_translation":{
+        "strategy":"maxmind",
+        "params":{
+            "db_snapshots":["2014-08-04"]
+        }
+    }
+}
