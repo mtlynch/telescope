@@ -1,9 +1,9 @@
 {
     "file_format_version": 1.1,
-    "sites": ["lga01", "lga02", "nuq01", "nuq02", "ord01", "mia01", "iad01",
-	      "lax01", "sea01", "dfw01", "atl01"],
-    "client_providers": ["comcast", "cox", "cablevision", "at&t", "verizon",
-	    		 "twc", "centurylink"],
+    "sites": ["atl01", "dfw01", "iad01", "lax01", "lga01", "lga02","mia01",
+	      "nuq01", "nuq02", "ord01","sea01"],
+    "client_providers": ["at&t","cablevision", "centurylink", "comcast", "cox",
+	    		 "twc", "verizon"],
     "start_times": ["2012-01-01T00:00:00Z"],
     "duration": "1096d",
     "metrics": ["download_throughput", "upload_throughput", "minimum_rtt",
