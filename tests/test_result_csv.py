@@ -18,6 +18,8 @@
 from __future__ import absolute_import
 import unittest
 
+import mock
+
 from telescope import result_csv
 
 
@@ -43,6 +45,20 @@ class ResultCsvTest(unittest.TestCase):
         self.assertEqual('123456,54.6\r\n', result_csv.metrics_to_csv(
             [{'timestamp': 123456,
               'packet_retransmit_rate': 54.6}]))
+
+    def test_metrics_to_csv_always_makes_timestamp_first_column(self):
+
+        def mock_get(key, _):
+            row = {'timestamp': 123456, 'download_mbps': 54.6}
+            return row[key]
+
+        mock_row = mock.MagicMock()
+        # metrics_to_csv should make timestamp the first column, even if it
+        # recevies the row keys in a different order.
+        mock_row.keys.return_value = ['download_mbps', 'timestamp']
+        mock_row.get.side_effect = mock_get
+        self.assertEqual('123456,54.6\r\n',
+                         result_csv.metrics_to_csv([mock_row]))
 
     def test_metrics_to_csv_processes_three_element_list_correctly(self):
         metrics_list = [
